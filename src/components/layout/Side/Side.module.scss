@@ -1,0 +1,43 @@
+@use "../../../styles/layout/breakpoints.scss" as bp;
+.side {
+  width: 40px;
+  position: fixed;
+  bottom: 0px;
+  left: 40px;
+  right: auto;
+  z-index: var(--z-fixed);
+  &.right {
+    left: auto;
+    right: 40px;
+    .link {
+      writing-mode: vertical-rl;
+    }
+  }
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  &::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 90px;
+    margin: 0px auto;
+    background: var(--c-bgWhite);
+  }
+}
+.link {
+  padding: 0.5rem;
+  svg {
+    fill: none;
+  }
+}
+.email {
+  font-size: var(--font-size-smaller);
+}
+@include bp.to(md) {
+  .side {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Satoshi-Variable";
+  src: url("/fonts/satoshi/Satoshi-Variable.woff2") format("woff2"),
+    url("/fonts/satoshi/Satoshi-Variable.woff") format("woff");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Work-Sans";
+  src: url("/fonts/work_sans/WorkSans-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Asap";
+  src: url("/fonts/asap/Asap_wdth.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}

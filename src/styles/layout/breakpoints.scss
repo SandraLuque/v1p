@@ -1,0 +1,43 @@
+$breakpoints: (
+  "sm": 320px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "xxl": 1400px,
+);
+
+@mixin breakpoint($bp: 0) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@function getBp($bp) {
+  @return map-get($breakpoints, $bp);
+}
+
+@mixin from($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media screen and (min-width: #{map-get($breakpoints, $size)}) {
+      @content;
+    }
+  }
+}
+
+@mixin to($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media screen and (max-width: #{map-get($breakpoints, $size)}) {
+      @content;
+    }
+  }
+}
+
+@mixin fromTo($from, $to) {
+  @if getBp($to) >getBp($from) {
+    @media screen and (min-width:#{map-get($breakpoints, $from)}) and (max-width: #{map-get($breakpoints, $to)}) {
+      @content;
+    }
+  } @else {
+    @error "El segundo argumento del mixin fromTo debe ser mayor que el primero";
+  }
+}

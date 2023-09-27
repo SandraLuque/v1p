@@ -1,0 +1,96 @@
+@use "../../../styles/layout/breakpoints.scss" as bp;
+.header {
+  background: var(--c-white);
+  height: var(--header-height);
+  display: grid;
+  font-size: 1.2rem;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: var(--z-fixed);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-header);
+  font-variation-settings: "wght" 700;
+  font-size: 2rem;
+}
+.right {
+  position: relative;
+}
+.nav {
+  display: flex;
+  align-items: center;
+}
+.btn {
+  display: none;
+}
+.item {
+  display: none;
+}
+.show {
+  display: flex;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2.1rem;
+  font-variation-settings: "wght" 500;
+}
+.link {
+  cursor: pointer;
+}
+.active {
+  position: relative;
+  &::before {
+    content: "{";
+    margin-right: 0.25rem;
+    font-size: 1.5rem;
+    background: var(--c-primary);
+    background: repeating-linear-gradient(
+      to bottom right,
+      var(--c-primary) 0%,
+      var(--c-secundary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-variation-settings: "wght" 700;
+  }
+}
+@include bp.to(lg) {
+  .nav {
+    position: fixed;
+    height: calc(100vh - var(--header-height));
+    top: var(--header-height);
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background: var(--c-white);
+    left: -100%;
+    transition: all 0.3s ease-in-out;
+    z-index: 300;
+    &.open {
+      left: 0;
+    }
+  }
+  .btn {
+    display: flex;
+  }
+  .links {
+    flex-direction: column;
+  }
+}
+@include bp.to(md) {
+  .header {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

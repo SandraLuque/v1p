@@ -1,0 +1,119 @@
+@use "../../../styles/layout/breakpoints.scss" as bp;
+@mixin rotate($br, $time, $size, $ps, $op) {
+  position: absolute;
+  top: $ps;
+  left: $ps;
+  width: $size;
+  height: $size;
+  border-radius: $br;
+  opacity: $op;
+  animation: rotate-circle $time infinite linear;
+  // animation: morph $time ease-in-out infinite;
+}
+.wraper {
+  width: 26.5rem;
+  height: 26.5rem;
+  position: relative;
+  // border-radius: 50%;
+  border-radius: 50% 45% 40% 55%/50% 45% 55% 40%;
+  &.big {
+    width: 23.5rem;
+    height: 23.5rem;
+    .box {
+      width: 23rem;
+      height: 23rem;
+    }
+  }
+  .circle {
+    @include rotate(48%, 12s, 100%, -1%, 0.5);
+    background: var(--c-quaternary);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--c-quaternary);
+    &::after {
+      content: "";
+      @include rotate(49%, 13s, 99%, 0.5%, 0.3);
+      background: var(--c-primary);
+    }
+    &::before {
+      content: "";
+      @include rotate(48%, 10s, 100%, 0.5%, 0.3);
+      background: var(--c-tertiary);
+    }
+  }
+}
+.box {
+  width: 26rem;
+  height: 26rem;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  border-radius: 50% 45% 40% 55%/50% 45% 55% 40%;
+  animation: morph 7s ease-in-out infinite;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+@include bp.to(md) {
+  .wraper {
+    &.big {
+      width: 17.5rem;
+      height: 17.5rem;
+      .box {
+        width: 17rem;
+        height: 17rem;
+      }
+    }
+  }
+}
+
+@keyframes rotate-circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 50% 45% 40% 55% / 50% 45% 55% 40%;
+  }
+
+  50% {
+    border-radius: 40% 50% 55% 40% / 45% 53% 40% 50%;
+  }
+
+  100% {
+    border-radius: 50% 45% 40% 55% / 50% 45% 55% 40%;
+  }
+}
+@keyframes morph2 {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(
+      45deg,
+      var(--primary) 0%,
+      var(--secondary) 100%
+    );
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    background: linear-gradient(45deg, var(--third) 0%, var(--secondary) 100%);
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    background: linear-gradient(
+      45deg,
+      var(--primary) 0%,
+      var(--secondary) 100%
+    );
+  }
+}

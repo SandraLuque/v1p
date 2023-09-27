@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+img {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+p a {
+  display: inline;
+}
+li {
+  list-style-type: none;
+}
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+}

@@ -1,0 +1,62 @@
+:root {
+  --font-header: "Asap", sans-serif;
+  --font-body: "Work-Sans", sans-serif;
+  --font-size-body: #{rem(18px)};
+  --font-size-h1: #{rem(55px)};
+  --font-size-h2: #{rem(40px)};
+  @include from(lg) {
+    --font-size-body: #{rem(18px)};
+    --font-size-h1: #{rem(64px)};
+    --font-size-h2: #{rem(50px)};
+    --font-size-h3: #{rem(45px)};
+    --font-size-h4: #{rem(25px)};
+    --font-size-big: #{rem(30px)};
+    --font-size-normal: #{rem(18px)};
+    --font-size-small: #{rem(16px)};
+    --font-size-smaller: #{rem(14px)};
+  }
+}
+.h1,
+h1 {
+  font-size: var(--font-size-h1);
+  font-family: var(--font-header);
+  font-variation-settings: "wght" 700;
+}
+.h2,
+h2 {
+  font-size: var(--font-size-h2);
+  font-family: var(--font-header);
+  font-variation-settings: "wght" 700;
+}
+.h3,
+h3 {
+  font-size: var(--font-size-h3);
+  font-family: var(--font-header);
+  font-variation-settings: "wght" 700;
+}
+.h4,
+h4 {
+  font-size: var(--font-size-h4);
+  font-family: var(--font-header);
+  font-variation-settings: "wght" 500;
+}
+/* Variable instances */
+.satoshi-light {
+  font-variation-settings: "wght" 300;
+}
+
+.satoshi-regular {
+  font-variation-settings: "wght" 400;
+}
+
+.satoshi-medium {
+  font-variation-settings: "wght" 500;
+}
+
+.satoshi-bold {
+  font-variation-settings: "wght" 700;
+}
+
+.satoshi-black {
+  font-variation-settings: "wght" 900;
+}
