@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import styles from "./Projects.module.scss";
-import { Link } from "react-router-dom";
 import { Title } from "src/components/layout/title/Title";
 import Project from "../../../data/projectos";
 import { Icons } from "src/components/icons/Icons";

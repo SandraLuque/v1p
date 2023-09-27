@@ -6,7 +6,7 @@ import "./styles/styles.scss";
 import { router } from "./router/index.jsx";
 import { Provider } from "./provider/provider";
 import { makeServer } from "./server";
-makeServer({ environment: "development" });
+// makeServer({ environment: "development" });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
