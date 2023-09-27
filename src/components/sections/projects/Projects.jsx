@@ -1,22 +1,22 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./Projects.module.scss";
 import { Title } from "src/components/layout/title/Title";
 import Project from "../../../data/projectos";
-import { Icons } from "src/components/icons/Icons";
+// import { Icons } from "src/components/icons/Icons";
 // import { Button } from "src/components/button/button";
 // import { ProjectCrad } from "./ProjectCrad";
 
 export const Projects = () => {
-  // let [projects, setProjects] = useState([]);
+  let [projects, setProjects] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("/api/projects")
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       setProjects(json.projects);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("/api/projects")
+      .then((res) => res.json())
+      .then((json) => {
+        setProjects(json.projects);
+      });
+  }, []);
   const projFeatures = Project.featured;
 
   return (
@@ -62,13 +62,13 @@ export const Projects = () => {
             </li>
           ))}
         </ul>
-        {/* <ul className={styles.projects}>
+        <ul className={styles.projects}>
           <li className="grid md-bc-2 lg-bc-3 gap-row-3">
             {projects.map((proj) => (
               <ProjectCrad key={proj.id} data={proj} />
             ))}
           </li>
-        </ul> */}
+        </ul>
       </div>
     </section>
   );
