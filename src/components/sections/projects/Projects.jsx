@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 import styles from "./Projects.module.scss";
 import { Title } from "src/components/layout/title/Title";
 import Project from "../../../data/projectos";
 import { Icons } from "src/components/icons/Icons";
-import { Button } from "src/components/button/button";
+// import { Button } from "src/components/button/button";
 // import { ProjectCrad } from "./ProjectCrad";
 
 export const Projects = () => {
@@ -39,7 +39,7 @@ export const Projects = () => {
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
-                <ul className={styles.links}>
+                {/* <ul className={styles.links}>
                   {proj.links.map((link, index) => (
                     <li key={index}>
                       <Button type="link" href={link.href} target="_black">
@@ -50,7 +50,7 @@ export const Projects = () => {
                       </Button>
                     </li>
                   ))}
-                </ul>
+                </ul> */}
               </ul>
               <div className={styles.image}>
                 <div className={styles.pictureWraper}>
