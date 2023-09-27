@@ -5,7 +5,7 @@ import { Title } from "src/components/layout/title/Title";
 import Project from "../../../data/projectos";
 // import { Icons } from "src/components/icons/Icons";
 // import { Button } from "src/components/button/button";
-// import { ProjectCrad } from "./ProjectCrad";
+import { ProjectCrad } from "./ProjectCrad";
 
 export const Projects = () => {
   let [projects, setProjects] = useState([]);
