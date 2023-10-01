@@ -1,23 +1,25 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "src/components/layout/header/Header";
 import { ProjectDetailItem } from "src/components/sections/projects/ProjectDetailItem";
+import { GlovalContext } from "src/provider/provider";
 
 export const ProjectDetail = ({ page }) => {
-  const params = useParams();
-  const [project, setProject] = useState(null);
+	const { projectId } = useParams();
+	const { projects } = useContext(GlovalContext);
+	const { files } = projects;
+	const projectSelected = files.find((proj) => proj.id === projectId);
 
-  useEffect(() => {
-    fetch(`/api/projects/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setProject(data.projects));
-  }, [params.id]);
-  return (
-    <>
-      <Header page={page} />
-      <main>
-        {project ? <ProjectDetailItem data={project} /> : <h2>Loading...</h2>}
-      </main>
-    </>
-  );
+	return (
+		<>
+			<Header page={page} />
+			<main>
+				{projectSelected ? (
+					<ProjectDetailItem data={projectSelected} />
+				) : (
+					<h2>Loading...</h2>
+				)}
+			</main>
+		</>
+	);
 };
