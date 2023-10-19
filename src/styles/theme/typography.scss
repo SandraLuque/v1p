@@ -1,62 +1,89 @@
-:root {
-  --font-header: "Asap", sans-serif;
+:root{
+  --font-header: "DPSDbeyond", sans-serif;
   --font-body: "Work-Sans", sans-serif;
-  --font-size-body: #{rem(18px)};
-  --font-size-h1: #{rem(55px)};
-  --font-size-h2: #{rem(40px)};
-  @include from(lg) {
-    --font-size-body: #{rem(18px)};
-    --font-size-h1: #{rem(64px)};
-    --font-size-h2: #{rem(50px)};
-    --font-size-h3: #{rem(45px)};
-    --font-size-h4: #{rem(25px)};
-    --font-size-big: #{rem(30px)};
-    --font-size-normal: #{rem(18px)};
-    --font-size-small: #{rem(16px)};
-    --font-size-smaller: #{rem(14px)};
+
+  --text-xs:#{rem(14px)};
+  --text-sm:#{rem(16px)};
+  --text-base: #{rem(17px)};
+  --text-big: #{rem(21px)};
+  --text-lg: #{rem(25px)};
+  --text-xl: #{rem(30px)};
+  --text-2xl: #{rem(35px)};
+  --text-3xl: #{rem(40px)};
+  --heading-line-height : 1.15;
+  --body-line-height    : 1.2;
+
+  @include from(lg){
+    --text-xs:#{rem(14px)};
+    --text-sm:#{rem(16px)};
+    --text-base: #{rem(19px)};
+    --text-big: #{rem(25px)};
+    --text-lg: #{rem(30px)};
+    --text-xl: #{rem(35px)};
+    --text-2xl: #{rem(45px)};
+    --text-3xl: #{rem(50px)};
   }
-}
-.h1,
-h1 {
-  font-size: var(--font-size-h1);
-  font-family: var(--font-header);
-  font-variation-settings: "wght" 700;
-}
-.h2,
-h2 {
-  font-size: var(--font-size-h2);
-  font-family: var(--font-header);
-  font-variation-settings: "wght" 700;
-}
-.h3,
-h3 {
-  font-size: var(--font-size-h3);
-  font-family: var(--font-header);
-  font-variation-settings: "wght" 700;
-}
-.h4,
-h4 {
-  font-size: var(--font-size-h4);
-  font-family: var(--font-header);
-  font-variation-settings: "wght" 500;
-}
-/* Variable instances */
-.satoshi-light {
-  font-variation-settings: "wght" 300;
+
+  --text-h4: var(--text-lg);
+  --text-h3: var(--text-xl);
+  --text-h2: var(--text-2xl);
+  --text-h1: var(--text-3xl);
+  
 }
 
-.satoshi-regular {
-  font-variation-settings: "wght" 400;
+@mixin body-font {
+  font-family : var(--font-body);
+  font-weight : 400;
+  line-height : var(--body-line-height);
 }
 
-.satoshi-medium {
-  font-variation-settings: "wght" 500;
+@mixin biggester {
+  @include body-font;
+  font-size : var(--text-xl);
+}
+@mixin bigger {
+  @include body-font;
+  font-size : var(--text-lg);
 }
 
-.satoshi-bold {
-  font-variation-settings: "wght" 700;
+@mixin big {
+  @include body-font;
+  font-size : var(--text-big);
 }
 
-.satoshi-black {
-  font-variation-settings: "wght" 900;
+@mixin normal {
+  @include body-font;
+  font-size : var(--text-base);
+}
+
+@mixin small {
+  @include body-font;
+  font-size : var(--text-sm);
+}
+
+@mixin smaller {
+  @include body-font;
+  font-size : var(--text-xs);
+}
+.fn-biggester {
+  @include biggester
+}
+.fn-bigger {
+  @include bigger
+}
+
+.fn-big {
+  @include big
+}
+
+.fn-normal {
+  @include normal
+}
+
+.fn-small {
+  @include small
+}
+
+.fn-smaller {
+  @include smaller
 }

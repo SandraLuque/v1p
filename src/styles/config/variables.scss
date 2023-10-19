@@ -1,31 +1,21 @@
-$max-width: 1200px;
-// z-ndex
-$z-back: -10;
-$z-normal: 1;
-$z-tooltip: 10;
-$z-fixed: 100;
-$z-modal: 1000;
-
+$l-unit: 0.5rem;
+$base-gap:$l-unit * 4 !default;
 $base-padding: 0.25rem;
 $base-margin: 0.25rem;
-$base-border-radius: 0.7rem;
-$base-gap: 1.5rem;
-$base-font-size: 18px;
-$font-size-sm: $base-font-size * 0.78;
-$font-size-lg: $base-font-size * 1.5;
-$font-size-xl: $base-font-size * 2;
-$font-size-xxl: $base-font-size * 3;
-$l-unit: 0.5rem !default;
-:root {
-  //layout
-  --gap: 1.5rem;
-  --max-width: #{rem(1280px)};
-  // --max-width-st: #{rem(1024px)};
-  --max-width-st: 70rem;
-  --brd: #{rem(8px)};
+$base-bdr: 0.7rem;
+$grid-container: dgrid !default;
+$max-width: #{rem(1536px)}!default;
+$max-grid-columns: 5 !default;
+:root{
+  --max-width: #{rem(1536px)};
+  --header-height: 4rem;
+  --vertical-block-space:var(--header-height);
+  --ease-evmos: cubic-bezier(0.42,0,0.33,1);
+  --gap: 1rem;
+  --base-bdr: 0.7rem;
   --z-back: -10;
   --z-normal: 1;
   --z-tooltip: 10;
   --z-fixed: 100;
-  --z-modal: 1000;
+  --z-modal: 1000
 }

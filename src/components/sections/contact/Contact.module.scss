@@ -1,0 +1,15 @@
+@use "../../../styles/layout/breakpoints.scss" as bp;
+.contact{
+  justify-content: center;
+  padding: 2rem;
+  border-radius: var(--base-bdr);
+  background: var(--grey-800);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+@include bp.from(md) {
+  .contact{
+    justify-content: space-between;
+  }
+}

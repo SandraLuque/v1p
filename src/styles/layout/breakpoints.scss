@@ -1,40 +1,43 @@
+
 $breakpoints: (
-  "sm": 320px,
-  "md": 768px,
-  "lg": 1024px,
-  "xl": 1280px,
-  "xxl": 1400px,
-);
-
-@mixin breakpoint($bp: 0) {
-  @media (min-width: $bp) {
-    @content;
-  }
-}
-
+  sm: 640,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1536px,
+) !default;
+$sizes: map-keys($breakpoints);
 @function getBp($bp) {
   @return map-get($breakpoints, $bp);
 }
-
-@mixin from($size) {
-  @if map-has-key($breakpoints, $size) {
-    @media screen and (min-width: #{map-get($breakpoints, $size)}) {
+@mixin from($bp) {
+  @if map-has-key($breakpoints, $bp) {
+    @if $bp==s {
+      @content;
+    } @else {
+      @media screen and (min-width: map_get($breakpoints, $bp)) {
+        @content;
+      }
+    }
+  } @else {
+    @media screen and (min-width: $bp) {
       @content;
     }
   }
 }
 
-@mixin to($size) {
-  @if map-has-key($breakpoints, $size) {
-    @media screen and (max-width: #{map-get($breakpoints, $size)}) {
+@mixin to($to) {
+  @if $to==s {
+    @content;
+  } @else {
+    @media screen and (max-width: getBp($to) - 1px) {
       @content;
     }
   }
 }
-
 @mixin fromTo($from, $to) {
   @if getBp($to) >getBp($from) {
-    @media screen and (min-width:#{map-get($breakpoints, $from)}) and (max-width: #{map-get($breakpoints, $to)}) {
+    @media screen and (getBp($from) <= width <= (getBp($to) - 1px)) {
       @content;
     }
   } @else {

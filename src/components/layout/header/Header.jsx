@@ -1,73 +1,87 @@
-import { useContext, useState } from "react";
-import { GlovalContext } from "../../../provider/provider";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-scroll";
-import { NavLink } from "react-router-dom";
-import styles from "./Header.module.scss";
-import { classNames } from "src/utils/classNames";
 import { Icons } from "src/components/icons/Icons";
+import { GlovalContext } from "../../../provider/provider";
+import styles from "./Header.module.scss";
+// import { Icons } from "src/components/icons/Icons";
 import { Logo } from "src/components/logo/Logo";
-export const Header = ({ page }) => {
-  const { header } = useContext(GlovalContext);
-  const { menu } = header;
+import { classNames } from "src/utils/classNames";
+export const Header = () => {
+	const { header } = useContext(GlovalContext);
+	const { menu } = header;
 
-  const [openNav, setOpenNav] = useState(false);
-  const handleClick = () => setOpenNav(!openNav);
+	const [openNav, setOpenNav] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+	const handleClick = () => setOpenNav(!openNav);
+	const resetClick = () => (scrolled ? setOpenNav(!openNav) : "");
 
-  return (
-    <header className={styles.header}>
-      <div className={classNames("container", styles.navbar)}>
-        <div className={styles.logo}>
-          <span>SAN</span>
-          <i className="pl-1 pr-1 ">
-            <Logo size={25} />
-          </i>
-          <span>RA</span>
-        </div>
-        <div className={styles.right}>
-          <nav className={classNames(styles.nav, openNav && styles.open)}>
-            <ul className={styles.links}>
-              {menu.map(({ id, router, name, link, pages }) => {
-                return (
-                  <li
-                    key={id}
-                    className={classNames(
-                      pages.includes(page) ? styles.show : styles.item
-                    )}
-                  >
-                    {router ? (
-                      <NavLink
-                        to={link}
-                        className={({ isActive, isPending }) =>
-                          isPending ? "pending" : isActive ? styles.active : ""
-                        }
-                      >
-                        {name}
-                      </NavLink>
-                    ) : (
-                      <Link
-                        to={link}
-                        smooth={true}
-                        duration={500}
-                        className={styles.link}
-                      >
-                        {name}
-                      </Link>
-                    )}
-                  </li>
-                );
-              })}
-              {page === "projectDetail" && (
-                <label className={classNames(styles.active, styles.link)}>
-                  Project Details
-                </label>
-              )}
-            </ul>
-          </nav>
-          <button className={styles.btn} onClick={handleClick}>
-            <Icons icon={openNav ? "close" : "bars"} size={30} />
-          </button>
-        </div>
-      </div>
-    </header>
-  );
+	useEffect(() => {
+		const listenToScroll = () => {
+			if (window.scrollY > 73) {
+				setScrolled(true);
+			} else {
+				setScrolled(false);
+			}
+		};
+		window.addEventListener("scroll", listenToScroll);
+		return () => window.removeEventListener("scroll", listenToScroll);
+	}, []);
+
+	return (
+		<header
+			className={classNames(
+				"pl-3 pr-3",
+				styles.header,
+				scrolled ? styles.scrl : styles.top,
+			)}
+		>
+			<div className={classNames("mx-auto crossCenter", styles.navbar)}>
+				<div className={styles.logo}>
+					<i className="pl-1 pr-1">
+						<Logo size={25} />
+					</i>
+				</div>
+				<div className="crossCenter">
+					<nav className={classNames(styles.nav, openNav && styles.open)}>
+						<ul className={classNames("gap-1", styles.links)}>
+							{menu.map(({ id, name, link }) => {
+								return (
+									<li key={id} className={classNames(styles.item, styles.link)}>
+										<Link
+											onClick={() => resetClick()}
+											to={link}
+											smooth={true}
+											duration={500}
+											className={styles.linkr}
+										>
+											{name}
+										</Link>
+									</li>
+								);
+							})}
+						</ul>
+					</nav>
+					<div
+						className={classNames("pos-a", styles.btn)}
+						type="button"
+						onClick={handleClick}
+						onKeyDown={handleClick}
+					>
+						<div className={classNames("pos-r trs", styles.hamburger)}>
+							<Icons icon={"close"} size={30} styles={openNav ? "show" : ""} />
+							<Icons icon={"open"} size={30} styles={openNav ? "" : "show"} />
+						</div>
+					</div>
+					<a
+						href="https://drive.google.com/file/d/1rClCQGHE4LVi5qaXd6aLNmg3QxRip9gG/view?usp=share_link"
+						target="_blank"
+						rel="noopener noreferrer"
+						className={classNames("ml-3", styles.resume)}
+					>
+						Resume
+					</a>
+				</div>
+			</div>
+		</header>
+	);
 };

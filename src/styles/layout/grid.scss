@@ -1,16 +1,10 @@
-$grid-columns: 12;
-
-@mixin grid-column-size($nc) {
-  --bs-columns: #{$nc};
-  grid-template-columns: repeat(var(--bs-columns, 12), 1fr);
-}
-@mixin grid-column-width($nc) {
-  $tnc: #{$nc - 1};
-  $column-width: calc((100% - var(--gap) * #{$tnc}) / #{$nc});
-  grid-template-columns: repeat($nc, $column-width);
+@mixin grid-column-width($i) {
+  $n: #{$i - 1};
+  $column-width: calc((100% - var(--gap) * #{$n}) / #{$i});
+  grid-template-columns: repeat($i, $column-width);
 }
 
-.grid {
+.#{$grid-container} {
   display: grid;
   grid-template-columns: 100%;
   column-gap: var(--gap);
@@ -19,31 +13,68 @@ $grid-columns: 12;
   margin-right: 1rem;
   max-width: var(--max-width);
 
-  &.row-gap {
-    grid-row-gap: var(--gap);
-  }
   @for $i from 0 through 8 {
-    &.gap-row-#{$i} {
-      grid-row-gap: #{$l-unit * $i};
+    &.dgap-#{$i} {
+      --gap: #{$l-unit * $i};
     }
   }
 
-  @each $bp, $width in $breakpoints {
-    @include from($bp) {
-      @for $i from 1 through $grid-columns {
+  &.row-gap {
+    row-gap: var(--gap);
+  }
+
+  @include from($max-width) {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.full {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  @each $size, $screen-size in $breakpoints {
+    // Estilos por breakpoint
+    @include from($size) {
+      // Recorre la cantidad de columnas
+      @for $i from 1 through $max-grid-columns {
+        // Columnas en el contenedor
+
+        // Una columna
         @if $i == 1 {
-          &.bc-1-#{$bp} {
-            // --bs-columns: 1 grid-template-columns: 100%;
+          &.cols-#{$size}-1,
+          &.#{$size}-grid-1 {
             grid-template-columns: 100%;
           }
         }
+
+        // Más de una columna
         @if $i > 1 {
-          &.#{$bp}-bc-#{$i} {
+          &.cols-#{$size}-#{$i},
+          &.#{$size}-grid-#{$i} {
             @include grid-column-width($i);
           }
         }
-        .col-#{$i}-#{$bp} {
-          grid-column: auto/span $i;
+        // Columnas en los items
+        > .span-#{$size}-#{$i},
+        > .#{$size}-cols-#{$i} {
+          grid-column-end: span $i;
+        }
+
+        // rows en los items
+        > .#{$size}-rows-#{$i} {
+          grid-row-end: span $i;
+        }
+
+        // Inicio de columna en items
+        > .#{$size}-x-#{$i} {
+          grid-column-start: $i;
+        }
+
+        // Inicio de fila en items
+        > .#{$size}-y-#{$i} {
+          grid-row-start: $i;
         }
       }
     }

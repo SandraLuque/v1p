@@ -1,67 +1,136 @@
-import { useContext } from "react";
-import { Title } from "src/components/layout/title/Title";
+import { useContext, useState } from "react";
+import { Icons } from "src/components/icons/Icons";
+import { Titles } from "src/components/titles/Titles";
 import { GlovalContext } from "src/provider/provider";
-import { ProjectCrad } from "./ProjectCrad";
+import { classNames } from "src/utils/classNames";
 import styles from "./Projects.module.scss";
-// import { Icons } from "src/components/icons/Icons";
-// import { Button } from "src/components/button/button";
-// import { ProjectCrad } from "./ProjectCrad";
-
 export const Projects = () => {
 	const { projects } = useContext(GlovalContext);
-	const { apps } = projects;
-	const { files } = projects;
+	const [hoveredCart, setHoveredCart] = useState(-1);
+
+	const showCartHandler = (i) => {
+		setHoveredCart(i);
+		console.log(i);
+	};
+
+	const hideCartHandler = () => {
+		setHoveredCart(-1);
+	};
 
 	return (
-		<section name="projects" className="sect-container">
-			<div className={styles.wraper}>
-				<Title title="My Projects" type="subtitle" />
-				<h3>See My Works Which Will Amaze You!</h3>
-				<p>Descubra cómo nuestras habilidades pueden contribuir a su éxito.</p>
-				<ul className={styles.projects}>
-					{apps.map((proj) => (
-						<li className="grid md-bc-2 gap-row-3" key={proj.id}>
-							<ul className={styles.content}>
-								<div className={styles.topTitle}>
-									<p className={styles.overline}>{proj.status}</p>
-									<h4 className={styles.title}>{proj.title}</h4>
-								</div>
-								<div className={styles.description}>{proj.description}</div>
-								<ul className={styles.techList}>
-									{proj.tech.map((item) => (
-										<li key={item.id}>{item}</li>
-									))}
-								</ul>
-								{/* <ul className={styles.links}>
-                  {proj.links.map((link, index) => (
-                    <li key={index}>
-                      <Button type="link" href={link.href} target="_black">
-                        <i>
-                          <Icons icon={link.icon} size={18} />
-                        </i>
-                        <span>{link.text}</span>
-                      </Button>
-                    </li>
-                  ))}
-                </ul> */}
-							</ul>
-							<div className={styles.image}>
-								<div className={styles.pictureWraper}>
-									<picture>
-										<img src={proj.image} alt={proj.title} loading="lazy" />
-									</picture>
+		<section className="l-section" name="projects">
+			<Titles variant={"h2"} st="ta-c">
+				<h2>My Projects</h2>
+			</Titles>
+			<div className="d-g gap-1 ta-c">
+				<p className="fn-bigger">
+					Discover how our skills can contribute to your success.
+				</p>
+				<p>
+					Some personal projects I've developed and designed for both enjoyment
+					and educational purposes.
+				</p>
+			</div>
+			<div className="section-wraper">
+				{projects.map((item, i) => (
+					<div
+						className="dgrid full cols-lg-2 dgap-6 row-gap section-card bdr-sm ov-h"
+						key={item.id}
+					>
+						<div
+							className={styles.imGroup}
+							onMouseLeave={hideCartHandler}
+							onMouseEnter={() => showCartHandler(i)}
+						>
+							<div className="pos-r main-full">
+								<div className={styles.wraperCrad}>
+									<ul
+										className={classNames(
+											styles.linkCard,
+											styles[`crad${item.order}`],
+											hoveredCart === i ? styles[`pulse${item.order}`] : "",
+										)}
+									>
+										{item.visit.map((item) => (
+											<li key={item.text}>
+												<a
+													href={item.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="txt-grey"
+												>
+													<Icons icon={item.icon} styles="filltrans" />
+												</a>
+											</li>
+										))}
+									</ul>
+									<div
+										className={classNames(
+											styles.webCard,
+											styles[`crad${item.order}`],
+										)}
+									>
+										<div
+											className={classNames(
+												styles.innerImg,
+												hoveredCart === i ? styles[`animate${i}`] : "",
+											)}
+										>
+											<img src={item.img} alt={item.title} loading="lazy" />
+										</div>
+									</div>
 								</div>
 							</div>
-						</li>
-					))}
-				</ul>
-				<ul className={styles.projects}>
-					<li className="grid md-bc-2 lg-bc-3 gap-row-3">
-						{files.map((proj) => (
-							<ProjectCrad key={proj.id} data={proj} />
-						))}
-					</li>
-				</ul>
+						</div>
+						<div className={styles.wrapper}>
+							<Titles variant={"h3"}>
+								<h3>{item.title}</h3>
+							</Titles>
+							<div>
+								<div className={classNames("pt-3 pb-3", styles.item)}>
+									<p>
+										timeframe: <span className="txt-grey400">{item.time}</span>
+									</p>
+								</div>
+								<div className={classNames("pt-3 pb-3", styles.item)}>
+									<p>
+										functions:
+										<span className="txt-grey400">{item.functions}</span>
+									</p>
+								</div>
+								<div className={classNames("pt-3 pb-3", styles.item)}>
+									<p>
+										tech: <span className="txt-grey400">{item.tech}</span>
+									</p>
+								</div>
+								<div
+									className={classNames("pt-3 pb-3", styles.item, styles.visit)}
+								>
+									<p>visit:</p>
+									<ul className="crossCenter gap-1">
+										{item.visit.map((item) => (
+											<li key={item.text}>
+												<a
+													href={item.href}
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													{item.text}
+												</a>
+											</li>
+										))}
+									</ul>
+								</div>
+								<div className={classNames("pt-3 pb-3 txt-grey400")}>
+									<p>{item.description}</p>
+								</div>
+							</div>
+							<h3 className={classNames("pt-3 pb-3", styles.year)}>
+								{item.year}
+							</h3>
+						</div>
+					</div>
+				))}
 			</div>
 		</section>
 	);

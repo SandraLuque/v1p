@@ -1,0 +1,14 @@
+@mixin Titles($variant){
+font-family: var(--font-header);
+font-size: var(--text-#{$variant});
+line-height:  var(--heading-line-height);
+color: var(--main-light)
+
+}
+.h1{ @include Titles(h1);}
+.h2{ 
+  @include Titles(h2);     
+  margin-bottom: 2rem;
+}
+.h3{ @include Titles(h3);}
+.h4{ @include Titles(h4);}

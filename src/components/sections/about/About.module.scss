@@ -1,30 +1,9 @@
-@use "../../../styles/layout/breakpoints.scss" as bp;
-.wraper {
-  // align-items: center;
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // justify-content: center;
-  gap: 1rem;
-  overflow: hidden;
+.card{
+  background: var(--box-background);
+  padding: 2rem 2.5rem;
 }
-.text {
-  position: relative;
-  display: grid;
-  gap: 1rem;
-}
-.img {
-  img {
-    border-radius: var(--brd);
-    height: 27rem;
-  }
-}
-.avatar {
-  display: grid;
-  place-items: center;
-  padding: 0.5rem 0;
-}
-@include bp.to(md) {
-  .avatar {
-    grid-row-end: 3;
-  }
+.img{
+  height: 4rem;
+  margin-left:-.5rem;
+  margin-bottom: 3rem;
 }

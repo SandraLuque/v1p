@@ -1,13 +1,13 @@
 // variables & function
-@import "./config/function.scss";
 @import "./config/variables.scss";
+@import "./config/function.scss";
 @import "./config/fonts.scss";
 // base & layout
 @import "./base/reset.scss";
 @import "./base/base.scss";
 @import "./layout/breakpoints.scss";
-@import "./layout/grid.scss";
 @import "./layout/layout.scss";
+@import "./layout/grid.scss";
 // theme & utilities (margin, padding, opacity)
 @import "./theme/colors.scss";
 @import "./theme/typography.scss";

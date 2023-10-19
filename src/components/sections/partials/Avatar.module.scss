@@ -16,12 +16,13 @@
   position: relative;
   // border-radius: 50%;
   border-radius: 50% 45% 40% 55%/50% 45% 55% 40%;
+ 
   &.big {
-    width: 23.5rem;
-    height: 23.5rem;
+    width: 14.5rem;
+    height: 14.5rem;
     .box {
-      width: 23rem;
-      height: 23rem;
+      width: 14rem;
+      height: 14rem;
     }
   }
   .circle {
@@ -58,7 +59,7 @@
   }
 }
 
-@include bp.to(md) {
+@include bp.from(md) {
   .wraper {
     &.big {
       width: 17.5rem;

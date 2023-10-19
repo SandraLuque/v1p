@@ -1,36 +1,65 @@
-import { Title } from "src/components/layout/title/Title";
+import { useContext } from "react";
+import { Titles } from "src/components/titles/Titles";
+import { GlovalContext } from "src/provider/provider";
 import { classNames } from "src/utils/classNames";
-import { Avatar } from "../partials/Avatar";
 import styles from "./About.module.scss";
 export const About = () => {
+	const { expertises } = useContext(GlovalContext);
 	return (
-		<section name="about" className="sect-container">
-			<div className={classNames("grid md-bc-2 gap-row-3", styles.wraper)}>
-				<div className={styles.avatar}>
-					<Avatar type={"big"} />
+		<section className="l-section" name="about">
+			<Titles variant={"h2"} st="ta-c">
+				<h2>About</h2>
+			</Titles>
+			<div className="span-lg-3 d-g gap-1 ta-c pl-2 pr-2">
+				<p>
+					After studying computer science for three years, I decided to dedicate
+					myself to front-end development, then I studied web design courses.
+					This gave me the necessary skills to develop applications and web
+					pages with a great team.
+				</p>
+				<p>
+					I have designed websites and mobile applications for different clients
+					ranging from education, health and technology.
+				</p>
+				<p>
+					When I'm not working, you can find me playing soccer, at the movies or
+					just getting lost on the internet.
+				</p>
+			</div>
+			<div className="section-wraper">
+				<div className="dgrid full cols-lg-4 row-gap section-card bdr-sm">
+					<Titles variant={"h3"} st="d-g gap-2">
+						<h3>Expertises</h3>
+					</Titles>
+					{expertises.map((item) => (
+						<article
+							className={classNames("bdr-sm", styles.card)}
+							key={item.id}
+						>
+							<div className={styles.img}>
+								<img src={item.img} alt={item.title} loading="lazy" />
+							</div>
+							<div className="d-g gap-1">
+								<Titles variant={"h4"}>
+									<h4>{item.title}</h4>
+								</Titles>
+								<p className="fn-small txt-grey">{item.description}</p>
+							</div>
+						</article>
+					))}
 				</div>
-				<div>
-					<Title title="About me" type="subtitle" />
-					<div className={styles.text}>
-						<h3>Need a creative product? I can help you!</h3>
+				<div className="dgrid full cols-lg-4 section-card bdr-sm">
+					<Titles variant={"h3"}>
+						<h3>Work Experience</h3>
+					</Titles>
+					<div className="span-lg-3 d-g gap-2">
 						<p>
-							Como Desarrollador Front-End Junior, he tenido el placer de
-							trabajar en equipo en las diferentes etapas del desarrollo
-							front-end como la planificación, diseño, desarrollo y soporte.
-						</p>
-						<p>
-							Poseo habilidades en HTML, CSS, JavaScript, React,MIU, Tailwind y
-							SCSS. Sobresalgo en el diseño y mantenimiento de sitios web
-							elaborando interfaces dinámicas y atractivas a través de la
-							escritura de código limpio y optimizado y la utilización de
-							herramientas y técnicas de desarrollo de vanguardia.
+							I have nearly four years of experience working at Puridiom-pe as a
+							UI designer andfront-end developer. I have also gained valuable
+							knowledge by working on differentpersonal projects.
 						</p>
 					</div>
 				</div>
-			</div>
-			<div className={styles.jobs}>
-				{/* <a href="/cv.pdf"><button class="btn btn--primary">Download CV</button></a> */}
-				<Title title="Where I’ve Worked" type="subtitle" />
 			</div>
 		</section>
 	);

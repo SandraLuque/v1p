@@ -1,18 +1,17 @@
 @use 'sass:math';
-
-$utilities: (
-	'gap': (
-		'prefix': 'g',
-		'values': (
-			'0': 0,
-			'1': $base-gap,
-			'2': $base-gap * 2,
-			'3': $base-gap * 4,
-			'4': $base-gap * 6,
-			'5': $base-gap * 8,
-		),
-	),
-	'padding': (
+$utilities:(
+  'gap':(
+    'prefix': 'gap',
+    'values':(
+      '0':0,
+      '1':$base-gap,
+      '2':$base-gap * 2,
+      '3':$base-gap * 3,
+      '4':$base-gap * 4,
+      '5':$base-gap* 5,
+    )
+  ),
+  'padding': (
 		'prefix': 'p',
 		'values': (
 			'0': 0,
@@ -122,6 +121,17 @@ $utilities: (
 			'5': $base-margin * 8,
 		),
 	),
+	'border-radius': (
+		'prefix': 'bdr',
+		'values': (
+			'default': $base-bdr,
+			'none': 0,
+			'xs': math.div($base-bdr, 4),
+			'sm': math.div($base-bdr, 2),
+			'lg': $base-bdr * 2,
+			'full': 50%,
+		),
+	),
 	'opacity': (
 		'prefix': 'o',
 		'values': (
@@ -137,15 +147,13 @@ $utilities: (
 			'100': 1,
 		),
 	),
-	'border-radius': (
-		'prefix': 'br',
+	'overflow': (
+		'prefix': 'ov',
 		'values': (
-			'default': $base-border-radius,
-			'none': 0,
-			'xs': math.div($base-border-radius, 4),
-			'sm': math.div($base-border-radius, 2),
-			'lg': $base-border-radius * 2,
-			'full': 50%,
+			'h': hidden,
+			's': scroll,
+			'a': auto,
+			'v': visible,
 		),
 	),
 	'display': (
@@ -154,36 +162,44 @@ $utilities: (
 			'n': none,
 			'b': block,
 			'f': flex,
+			'g': grid,
 			'i': inline,
 			'ib': inline-block,
+			'if': inline-flex,
 		),
 	),
-	'font-size': (
-		'prefix': 'font',
-		'values': (
-			'sm': $font-size-sm,
-			'md': $base-font-size,
-			'lg': $font-size-lg,
-			'xl': $font-size-xl,
-			'xxl': $font-size-xxl,
-		),
+	'position': (
+		'prefix': 'pos',
+		'values':(
+			's': static,
+			'a': absolute,
+			'r': relative,
+			'f': fixed,
+		)
 	),
+	'text-align': (
+		'prefix': 'ta',
+		'values':(
+			'l': left,
+			'r': right,
+			'c': center,
+		)
+	)
 );
+//generate utility classes
+@each $property, $map in $utilities{
+$prefix: map-get($map, 'prefix');
+$values: map-get($map, 'values');
+  @each $k, $v in $values{
+    @if($k == 'defaul'){
+      .#{$prefix} {
+        #{$property}:$v;
+    }
+  } @else{
+    .#{$prefix}-#{$k} {
+      #{$property}:$v;
+    }
+  }
+}
 
-// generate utility classes
-@each $property, $map in $utilities {
-	$prefix: map-get($map, 'prefix');
-	$values: map-get($map, 'values');
-
-	@each $k, $v in $values {
-		@if ($k == 'defaul') {
-			.#{$prefix} {
-				#{$property}: $v;
-			}
-		} @else {
-			.#{$prefix}-#{$k} {
-				#{$property}: $v;
-			}
-		}
-	}
 }

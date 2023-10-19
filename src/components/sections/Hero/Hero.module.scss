@@ -1,69 +1,27 @@
-@use "../../../styles/layout/breakpoints.scss" as bp;
-.heroWraper {
-  padding-top: 0;
-  height: calc(100vh - var(--header-height));
-  display: grid;
-  place-items: center;
-  overflow: hidden;
+.heroWraper{
+  min-height: 700px;
   position: relative;
-}
-.title {
-  font-size: 5.5rem;
-  text-align: left;
-}
-.textColor {
-  color: var(--c-primary);
-  display: block;
-  // transform: translate3d(110px, 0px, 0px);
-  margin-bottom: -1.5rem;
-  background: var(--c-primary);
-  background: repeating-linear-gradient(
-    to bottom right,
-    var(--c-primary) 0%,
-    var(--c-secundary) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.wraper {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  font-size: 22px;
-}
-.info {
-  display: flex;
-  .text {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .icons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  &::after{content:" ";
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    bottom:0;
+    z-index:3;
+    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, #070707 100%)
   }
 }
-@include bp.to(lg) {
-  .heroWraper {
-    height: auto;
-  }
-  .title {
-    font-size: 3.5rem;
-    margin-bottom: calc(var(--gap) / 3);
-    span {
-      transform: none;
-    }
-  }
-  .info {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-  .icons {
-    justify-content: center;
-  }
-  .avatar {
-    display: grid;
-    place-items: center;
+.avatar{
+  overflow: hidden;
+}
+.wraper{
+  height:100vh ;
+  padding-top: var(--header-height);
+  z-index: 5;
+}
+.texts{
+  svg{
+    margin-bottom: -.8rem;
+    margin-left: .5rem;
   }
 }

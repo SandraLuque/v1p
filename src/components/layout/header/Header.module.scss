@@ -1,96 +1,121 @@
 @use "../../../styles/layout/breakpoints.scss" as bp;
-.header {
-  background: var(--c-white);
+
+@mixin naVariation{
+  position: absolute;
+  overflow: auto;
+  width: 400px;
+  max-width: 400px;
+  right: -400px;
+  top: 0;
+  background-color: rgba(18, 18, 18,.8);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  transition: right 0.25s;
+  .link{
+    font-size: var(--text-xl);
+    transition: all .3s ease-in-out;
+    &:hover{
+      margin-right: 1rem;
+      background-color: initial;
+    }
+  }
+  &.open{ 
+    right: 0;
+  }
+}
+.header{
+  background: transparent;
   height: var(--header-height);
   display: grid;
-  font-size: 1.2rem;
-  box-shadow: var(--box-shadow);
-  position: sticky;
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: var(--z-fixed);
+  &.top{
+    background-color: rgba(18, 18, 18,.3);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(159, 5, 254,.3);
+  }
 }
 .navbar {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  width: 100%; 
 }
-.logo {
-  display: flex;
-  align-items: center;
-  font-family: var(--font-header);
-  font-variation-settings: "wght" 700;
-  font-size: 2rem;
+.logo{
+  padding: 0.25rem;
+  padding-top: 0.5rem;
+  border-radius: 0.25rem;
+  transition: .5s background-color var(--ease-evmos);
 }
-.right {
-  position: relative;
+
+.hamburger{
+  height: 2.4rem;
+  width: 2.4rem;
+  background: var(--purple);
+  border-radius: calc(var(--base-bdr) / 2);
 }
-.nav {
-  display: flex;
-  align-items: center;
-}
-.btn {
-  display: none;
-}
-.item {
-  display: none;
-}
-.show {
-  display: flex;
-}
-.links {
-  display: flex;
-  align-items: center;
-  gap: 2.1rem;
-  font-variation-settings: "wght" 500;
-}
-.link {
+.btn{
+  transition: .5s transform var(--ease-evmos);
+  transform: translateX(-1rem);
+  right: 1rem;
+  z-index: -1;
   cursor: pointer;
 }
-.active {
+.nav{
   position: relative;
-  &::before {
-    content: "{";
-    margin-right: 0.25rem;
-    font-size: 1.5rem;
-    background: var(--c-primary);
-    background: repeating-linear-gradient(
-      to bottom right,
-      var(--c-primary) 0%,
-      var(--c-secundary) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-variation-settings: "wght" 700;
+  .link{
+    position: relative;
+    padding: 0.625rem;
+    cursor: pointer;
+   
   }
 }
-@include bp.to(lg) {
-  .nav {
-    position: fixed;
-    height: calc(100vh - var(--header-height));
-    top: var(--header-height);
-    width: 100%;
-    display: grid;
-    place-items: center;
-    background: var(--c-white);
-    left: -100%;
-    transition: all 0.3s ease-in-out;
-    z-index: 300;
-    &.open {
-      left: 0;
-    }
+.links{
+  display: flex;
+  align-items: center;
+}
+.resume{
+  background: var(--purple);
+  border-radius: calc(var(--base-bdr) / 2);
+  padding: .5rem;
+  font-weight: 500;
+  z-index: 1;
+}
+.scrl{
+  .logo{
+  
+    background: var(--purple);
   }
-  .btn {
-    display: flex;
+  .nav{
+    @include naVariation()
   }
-  .links {
+  .links{
     flex-direction: column;
   }
+  .btn{
+    z-index: 1;
+    transform: translateX(-6.5rem);
+    transition: .5s transform var(--ease-evmos);
+  }
 }
-@include bp.to(md) {
-  .header {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+@include bp.to(lg){
+  .header{
+    &.top{
+      .nav{
+        @include naVariation();
+      }
+    }
+    .links{
+      flex-direction: column;
+    }
+    .btn{
+      transform: translateX(-6rem);
+    }
+    .scrl{
+      .btn{
+        transform: translateX(-6rem);
+      }
+    }
   }
 }
