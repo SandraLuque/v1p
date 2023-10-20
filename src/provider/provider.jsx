@@ -134,13 +134,13 @@ const dataGlobal = {
 			{
 				id: 1,
 				name: "LinkedIn",
-				link: "https://www.instagram.com/characatoweb/",
+				link: "https://www.linkedin.com/in/sandrachambiluque/",
 				icon: "linkedin",
 			},
 			{
 				id: 2,
 				name: "Github",
-				link: "https://www.instagram.com/characatoweb/",
+				link: "https://github.com/SandraLuque",
 				icon: "github",
 			},
 		],
