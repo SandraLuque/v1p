@@ -98,7 +98,7 @@ const dataGlobal = {
 			img: IMAGES.tienda,
 			visit: [
 				{
-					href: "https://play.google.com/store/apps/details?id=pe.akar.comprasy-store",
+					href: "https://play.google.com/store/apps/details?id=pe.akar.compras",
 					icon: "google-play",
 					text: "Google Play",
 				},
@@ -117,7 +117,7 @@ const dataGlobal = {
 			img: IMAGES.taxi,
 			visit: [
 				{
-					href: "https://play.google.com/store/apps/details?id=pe.akar.comprasy-store",
+					href: "https://play.google.com/store/apps/details?id=pe.akar.etaxitest",
 					icon: "google-play",
 					text: "Google Play",
 				},
