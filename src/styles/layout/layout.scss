@@ -18,6 +18,9 @@
   padding-left: 1.2rem;
   padding-right: 1.2rem;
   padding-top : calc(var(--vertical-block-space) * 1.7);
+  &.unfilled{
+    padding-top: 0;
+  }
   @include from(md){
     padding-left: 2rem;
     padding-right: 2rem;

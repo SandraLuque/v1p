@@ -124,7 +124,7 @@ const dataGlobal = {
 			],
 			description:
 				"An Akar-Suite project available in Play Store, App to request a cab service using a mobile device.",
-			year: "©2020",
+			year: "©2022",
 		},
 	],
 	contact: {

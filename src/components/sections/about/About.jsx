@@ -6,7 +6,7 @@ import styles from "./About.module.scss";
 export const About = () => {
 	const { expertises } = useContext(GlovalContext);
 	return (
-		<section className="l-section" name="about">
+		<section className="l-section unfilled" name="about">
 			<Titles variant={"h2"} st="ta-c">
 				<h2>About</h2>
 			</Titles>
