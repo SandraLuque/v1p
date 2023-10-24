@@ -26,19 +26,19 @@
     }
   }
   .circle {
-    @include rotate(48%, 12s, 100%, -1%, 0.5);
-    background: var(--c-quaternary);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-    border: 1px solid var(--c-quaternary);
+    @include rotate(48%, 12s, 100%, -1%, 0.4);
+    background: var(--purple500);
+    box-shadow: 0 10px 30px -10px rgba(120, 30, 220, 0.4);
+    border: 1px solid var(--purple500);
     &::after {
       content: "";
-      @include rotate(49%, 13s, 99%, 0.5%, 0.3);
-      background: var(--c-primary);
+      @include rotate(49%, 13s, 99%, 0.5%, 0.2);
+      background: var(--purple200);
     }
     &::before {
       content: "";
-      @include rotate(48%, 10s, 100%, 0.5%, 0.3);
-      background: var(--c-tertiary);
+      @include rotate(48%, 10s, 100%, 0.5%, 0.2);
+      background: var(--pink);
     }
   }
 }
@@ -62,11 +62,11 @@
 @include bp.from(md) {
   .wraper {
     &.big {
-      width: 17.5rem;
-      height: 17.5rem;
+      width: 16.5rem;
+      height: 16.5rem;
       .box {
-        width: 17rem;
-        height: 17rem;
+        width: 16rem;
+        height: 16rem;
       }
     }
   }

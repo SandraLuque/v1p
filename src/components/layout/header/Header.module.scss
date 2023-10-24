@@ -6,7 +6,7 @@
   width: 400px;
   max-width: 400px;
   right: -400px;
-  top: 0;
+  top: var(--header-height);
   background-color: rgba(18, 18, 18,.8);
   height: 100vh;
   display: grid;
@@ -32,11 +32,15 @@
   width: 100%;
   top: 0;
   z-index: var(--z-fixed);
-  &.top{
-    background-color: rgba(18, 18, 18,.3);
+@include bp.from(lg){
+ 
+   .navLinks{
+    border: 2px solid var(--box-border);
     backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(159, 5, 254,.3);
-  }
+    background-color: rgba(14,16,22,.8);
+    padding: .25rem;
+   }
+}
 }
 .navbar {
   justify-content: space-between;
@@ -50,8 +54,8 @@
 }
 
 .hamburger{
-  height: 2.4rem;
-  width: 2.4rem;
+  height: 2.3rem;
+  width: 2.3rem;
   background: var(--purple);
   border-radius: calc(var(--base-bdr) / 2);
 }
@@ -59,21 +63,22 @@
   transition: .5s transform var(--ease-evmos);
   transform: translateX(-1rem);
   right: 1rem;
-  z-index: -1;
+  z-index: 1;
   cursor: pointer;
+  display: none;
 }
 .nav{
   position: relative;
   .link{
     position: relative;
-    padding: 0.625rem;
+    padding: 0.5rem;
     cursor: pointer;
-   
   }
 }
 .links{
   display: flex;
   align-items: center;
+  gap: .5rem;
 }
 .resume{
   background: var(--purple);
@@ -84,38 +89,20 @@
 }
 .scrl{
   .logo{
-  
     background: var(--purple);
-  }
-  .nav{
-    @include naVariation()
-  }
-  .links{
-    flex-direction: column;
-  }
-  .btn{
-    z-index: 1;
-    transform: translateX(-6.5rem);
-    transition: .5s transform var(--ease-evmos);
   }
 }
 @include bp.to(lg){
   .header{
-    &.top{
-      .nav{
-        @include naVariation();
-      }
+    .nav{
+      @include naVariation();
     }
     .links{
       flex-direction: column;
     }
     .btn{
+      display: block;
       transform: translateX(-6rem);
-    }
-    .scrl{
-      .btn{
-        transform: translateX(-6rem);
-      }
     }
   }
 }

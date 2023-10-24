@@ -16,7 +16,7 @@
   --grey-800: #222222;
   --grey-900: #171717;
   
-  --dark-grey: #121212;
+  --dark-grey: #0e1016;
   --darker-grey: #070707;
   --box-border: #373737;
 
@@ -26,7 +26,24 @@
   --box-background: var(--grey-900);
   --cream: #F8EDFF;
   --cream-transparent: rgba(248, 237, 255,0);
-  --purple: #9f05fe;
+  --purple50: #f6f2ff;
+  --purple100: #eee8ff;
+  --purple200: #e0d4ff;
+  --purple300: #c8b2ff;
+  --purple400: #af86ff;
+  --purple500: #9655fd;
+  --purple600: #8a32f5;
+  --purple700: #781edc;
+  --purple800: #681bbc;
+  --purple900: #56189a;
+  --purple950: #350c69;
+  
+  
+  
+  
+
+
+  --purple: var(--purple700);
   --purple-transparent: rgba(159,5,254,0);
   --c-text: var(--cream);
   --bg-body:var(--darker-grey);

@@ -2,26 +2,26 @@
   --font-header: "DPSDbeyond", sans-serif;
   --font-body: "Work-Sans", sans-serif;
 
-  --text-xs:#{rem(14px)};
-  --text-sm:#{rem(16px)};
-  --text-base: #{rem(17px)};
-  --text-big: #{rem(21px)};
-  --text-lg: #{rem(25px)};
-  --text-xl: #{rem(30px)};
-  --text-2xl: #{rem(35px)};
-  --text-3xl: #{rem(40px)};
+  --text-xs:#{rem(13px)};
+  --text-sm:#{rem(15px)};
+  --text-base: #{rem(16px)};
+  --text-big: #{rem(19px)};
+  --text-lg: #{rem(24px)};
+  --text-xl: #{rem(28px)};
+  --text-2xl: #{rem(30px)};
+  --text-3xl: #{rem(33px)};
   --heading-line-height : 1.15;
   --body-line-height    : 1.2;
 
   @include from(lg){
     --text-xs:#{rem(14px)};
     --text-sm:#{rem(16px)};
-    --text-base: #{rem(19px)};
-    --text-big: #{rem(25px)};
-    --text-lg: #{rem(30px)};
-    --text-xl: #{rem(35px)};
-    --text-2xl: #{rem(45px)};
-    --text-3xl: #{rem(50px)};
+    --text-base: #{rem(18px)};
+    --text-big: #{rem(24px)};
+    --text-lg: #{rem(29px)};
+    --text-xl: #{rem(34px)};
+    --text-2xl: #{rem(44px)};
+    --text-3xl: #{rem(47px)};
   }
 
   --text-h4: var(--text-lg);
@@ -33,7 +33,7 @@
 
 @mixin body-font {
   font-family : var(--font-body);
-  font-weight : 400;
+  font-weight : 300;
   line-height : var(--body-line-height);
 }
 

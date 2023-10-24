@@ -41,9 +41,9 @@ export const Header = () => {
 						<Logo size={25} />
 					</i>
 				</div>
-				<div className="crossCenter">
+				<div className={classNames("crossCenter bdr-sm", styles.navLinks)}>
 					<nav className={classNames(styles.nav, openNav && styles.open)}>
-						<ul className={classNames("gap-1", styles.links)}>
+						<ul className={styles.links}>
 							{menu.map(({ id, name, link }) => {
 								return (
 									<li key={id} className={classNames(styles.item, styles.link)}>
