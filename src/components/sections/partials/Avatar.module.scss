@@ -26,18 +26,18 @@
     }
   }
   .circle {
-    @include rotate(48%, 12s, 100%, -1%, 0.4);
+    @include rotate(48%, 12s, 100%, -1%, 0.5);
     background: var(--purple500);
-    box-shadow: 0 10px 30px -10px rgba(120, 30, 220, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(120, 30, 220, 0.5);
     border: 1px solid var(--purple500);
     &::after {
       content: "";
-      @include rotate(49%, 13s, 99%, 0.5%, 0.2);
-      background: var(--purple200);
+      @include rotate(49%, 13s, 99%, 0.5%, 0.3);
+      background: var(--purple400);
     }
     &::before {
       content: "";
-      @include rotate(48%, 10s, 100%, 0.5%, 0.2);
+      @include rotate(48%, 10s, 100%, 0.5%, 0.3);
       background: var(--pink);
     }
   }
