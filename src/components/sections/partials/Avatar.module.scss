@@ -18,27 +18,27 @@
   border-radius: 50% 45% 40% 55%/50% 45% 55% 40%;
  
   &.big {
-    width: 14.5rem;
-    height: 14.5rem;
+    width: 13.5rem;
+    height: 13.5rem;
     .box {
-      width: 14rem;
-      height: 14rem;
+      width: 13rem;
+      height: 13rem;
     }
   }
   .circle {
     @include rotate(48%, 12s, 100%, -1%, 0.5);
-    background: var(--purple500);
-    box-shadow: 0 10px 30px -10px rgba(120, 30, 220, 0.5);
-    border: 1px solid var(--purple500);
+    background: var(--primary);
+    box-shadow: 0 10px 30px -10px rgba(36, 210, 253, 0.5);
+    border: 1px solid var(--primary);
     &::after {
       content: "";
       @include rotate(49%, 13s, 99%, 0.5%, 0.3);
-      background: var(--purple400);
+      background: var(--primary);
     }
     &::before {
       content: "";
       @include rotate(48%, 10s, 100%, 0.5%, 0.3);
-      background: var(--pink);
+      background: var(--primary);
     }
   }
 }
@@ -62,11 +62,11 @@
 @include bp.from(md) {
   .wraper {
     &.big {
-      width: 16.5rem;
-      height: 16.5rem;
+      width: 10.15rem;
+      height: 10.15rem;
       .box {
-        width: 16rem;
-        height: 16rem;
+        width: 10rem;
+        height: 10rem;
       }
     }
   }

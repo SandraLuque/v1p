@@ -3,6 +3,7 @@ import { Titles } from "src/components/titles/Titles";
 import IMAGES from "src/images/images";
 import { classNames } from "src/utils/classNames";
 import { Avatar } from "../partials/Avatar";
+import { SocialPill } from "../partials/SocialPill";
 import styles from "./Hero.module.scss";
 
 export const Hero = () => {
@@ -32,6 +33,9 @@ export const Hero = () => {
 							about crafting beautiful web and mobile experiences.
 							<Icons icon="arrow_left" size={30} />
 						</p>
+						<div className="d-f jc-c">
+							<SocialPill />
+						</div>
 					</div>
 				</div>
 			</div>

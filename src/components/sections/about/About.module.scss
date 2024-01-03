@@ -1,5 +1,6 @@
 .card{
-  background: var(--box-background);
+  background-image: radial-gradient(circle farthest-corner at 50% 50%,var(--grey-800),rgba(23,23,23,0) 61%);
+  background-color: var(--box-background);
   padding: 2rem 2.5rem;
 }
 .img{

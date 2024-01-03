@@ -1,0 +1,17 @@
+.experience{
+  border-color: var(--box-border);
+  border-inline-start-width: 1px;
+  border-style: solid;
+  position: relative;
+}
+.rounded {
+  border-width: 2px;
+  position: absolute;
+  width: 0.75rem;
+  height: 0.75rem;
+  inset-inline-start: -0.375rem;
+  background-color:var(--box-border);
+  border-radius: 9999px;
+  border-color: var(--bg-body);
+  border-style: solid;
+}

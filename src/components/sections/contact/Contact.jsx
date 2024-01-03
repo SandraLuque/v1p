@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { Icons } from "src/components/icons/Icons";
 import { Titles } from "src/components/titles/Titles";
 import { GlovalContext } from "src/provider/provider";
 import { classNames } from "src/utils/classNames";
+import { SocialPill } from "../partials/SocialPill";
 import styles from "./Contact.module.scss";
 export const Contact = () => {
 	const { contact } = useContext(GlovalContext);
+	const currentYear = new Date().getFullYear().toString();
 	return (
 		<section className="l-section" name="contact">
 			<Titles variant={"h2"} st="ta-c">
@@ -19,22 +20,10 @@ export const Contact = () => {
 				<p>Feel free to say hi or drop a line, I'd love to hear from you!</p>
 			</div>
 			<div className={classNames("crossCenter gap-1", styles.contact)}>
-				<div>{contact.name}</div>
-				<ul className="crossCenter gap-1">
-					{contact.socials.map((item) => (
-						<li key={item.id}>
-							<a
-								href={item.link}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="d-if"
-							>
-								<Icons icon={item.icon} styles="filltrans" />{" "}
-								<span className="ml-1">{item.name}</span>
-							</a>
-						</li>
-					))}
-				</ul>
+				<div>
+					{contact.name} {currentYear}
+				</div>
+				<SocialPill />
 				<div>{contact.email}</div>
 			</div>
 		</section>

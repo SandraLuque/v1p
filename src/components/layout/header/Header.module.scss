@@ -25,7 +25,7 @@
   }
 }
 .header{
-  background: transparent;
+  background: rgba(14,16,22,1);
   height: var(--header-height);
   display: grid;
   position: fixed;
@@ -33,11 +33,11 @@
   top: 0;
   z-index: var(--z-fixed);
 @include bp.from(lg){
- 
+  background: transparent;
    .navLinks{
-    border: 2px solid var(--box-border);
+    border: 1px solid var(--box-border);
     backdrop-filter: blur(18px);
-    background-color: rgba(14,16,22,.8);
+    
     padding: .25rem;
    }
 }
@@ -50,7 +50,8 @@
   padding: 0.25rem;
   padding-top: 0.5rem;
   border-radius: 0.25rem;
-  transition: .5s background-color var(--ease-evmos);
+  transition: .5s all var(--ease-evmos);
+  border: 1px solid transparent;
 }
 
 .hamburger{
@@ -81,21 +82,24 @@
   gap: .5rem;
 }
 .resume{
-  background: var(--purple);
+  background: transparent;
   border-radius: calc(var(--base-bdr) / 2);
+  border: 1px solid var(--primary);
   padding: .5rem;
   font-weight: 500;
   z-index: 1;
 }
 .scrl{
   .logo{
-    background: var(--purple);
+    background: transparent;
+    border-color: var(--primary)
   }
 }
 @include bp.to(lg){
   .header{
     .nav{
       @include naVariation();
+      background-color: rgba(18, 18, 18,1);
     }
     .links{
       flex-direction: column;

@@ -19,9 +19,9 @@
     --text-base: #{rem(18px)};
     --text-big: #{rem(24px)};
     --text-lg: #{rem(29px)};
-    --text-xl: #{rem(34px)};
-    --text-2xl: #{rem(44px)};
-    --text-3xl: #{rem(47px)};
+    --text-xl: #{rem(32px)};
+    --text-2xl: #{rem(35px)};
+    --text-3xl: #{rem(38px)};
   }
 
   --text-h4: var(--text-lg);
@@ -86,4 +86,7 @@
 
 .fn-smaller {
   @include smaller
+}
+.fn-h{
+  font-weight: 600;
 }

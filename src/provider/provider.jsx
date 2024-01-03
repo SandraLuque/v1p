@@ -36,33 +36,52 @@ const dataGlobal = {
 			},
 		],
 	},
-	expertises: [
-		{
-			id: uuidv4(),
-			title: "UI Design",
-			description:
-				"Design and user experience play a big role when I'm working on a project. I always try to find the right balance between looks, usability and performance.",
-			icons: ["ai", "psd", "xd", "figma"],
-			img: IMAGES.exptDesign,
-		},
+	about: {
+		experience: [
+			{
+				id: uuidv4(),
+				date: "Actualmente...",
+				title: "Freelance − Arequipa",
+				description:
+					"I have also gained valuable knowledge by working on differentpersonal projects",
+				link: "https://twitch.tv/midudev",
+			},
+			{
+				id: uuidv4(),
+				date: "Septiembre 2022",
+				title: "UI designer andfront-end developer  − Puridiom-pe Arequipa",
+				description:
+					"I have nearly four years of experience working at Puridiom-pe as a UI designer andfront-end developer.",
+			},
+		],
+		expertises: [
+			{
+				id: uuidv4(),
+				title: "UI Design",
+				description:
+					"Design and user experience play a big role when I'm working on a project. I always try to find the right balance between looks, usability and performance.",
+				icons: ["ai", "psd", "xd", "figma"],
+				img: IMAGES.exptDesign,
+			},
 
-		{
-			id: uuidv4(),
-			title: "Front-End Development",
-			description:
-				"I specialize in front-end development and I'm currently most familiar with the React ecosystem. Whenever I encounter something new, I try to quickly wrap my head around it",
-			icons: ["html", "js", "react"],
-			img: IMAGES.exptDevelopment,
-		},
-		{
-			id: uuidv4(),
-			title: "Interactivity",
-			description:
-				"I love adding animation and interactivity to my work for an even more engaging experience.",
-			icons: ["css", "sass", "gsap"],
-			img: IMAGES.exptInteractivity,
-		},
-	],
+			{
+				id: uuidv4(),
+				title: "Front-End Development",
+				description:
+					"I specialize in front-end development and I'm currently most familiar with the React ecosystem. Whenever I encounter something new, I try to quickly wrap my head around it",
+				icons: ["html", "js", "react"],
+				img: IMAGES.exptDevelopment,
+			},
+			{
+				id: uuidv4(),
+				title: "Interactivity",
+				description:
+					"I love adding animation and interactivity to my work for an even more engaging experience.",
+				icons: ["css", "sass", "gsap"],
+				img: IMAGES.exptInteractivity,
+			},
+		],
+	},
 	projects: [
 		{
 			id: 1,
@@ -128,23 +147,23 @@ const dataGlobal = {
 		},
 	],
 	contact: {
-		name: "© SANDRA LUQUE 2023",
+		name: "© SANDRA LUQUE ",
 		email: "chambiluquesandra@gmail.com",
-		socials: [
-			{
-				id: 1,
-				name: "LinkedIn",
-				link: "https://www.linkedin.com/in/sandrachambiluque/",
-				icon: "linkedin",
-			},
-			{
-				id: 2,
-				name: "Github",
-				link: "https://github.com/SandraLuque",
-				icon: "github",
-			},
-		],
 	},
+	socials: [
+		{
+			id: 1,
+			name: "LinkedIn",
+			link: "https://www.linkedin.com/in/sandrachambiluque/",
+			icon: "linkedin",
+		},
+		{
+			id: 2,
+			name: "Github",
+			link: "https://github.com/SandraLuque",
+			icon: "github",
+		},
+	],
 };
 
 export const GlovalContext = createContext();
