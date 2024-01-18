@@ -27,8 +27,7 @@ export const Projects = () => {
 					Discover how our skills can contribute to your success.
 				</p>
 				<p>
-					Some personal projects I've developed and designed for both enjoyment
-					and educational purposes.
+				Some of the projects in which I have participated.
 				</p>
 			</div>
 			<div className="section-wraper">

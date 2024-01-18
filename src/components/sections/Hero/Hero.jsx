@@ -25,12 +25,14 @@ export const Hero = () => {
 					</div>
 					<div className={classNames(styles.texts, " d-g gap-1")}>
 						<Titles variant={"h1"} st="ta-c">
-							<h1>UI Designer</h1>
-							<h1>+ Front-end Developer</h1>
+							<h1>Junior Web Developer</h1>
+							<h1>+ UI Designer</h1>
 						</Titles>
 						<p className="fn-big ta-c">
-							I&apos;m Sandra, a self-taught front-end developer, passionate
-							about crafting beautiful web and mobile experiences.
+							I&apos;m Sandra, a <span className="color">self-taught </span>
+							Junior Web Developer, passionate about creating {"("}and
+							occasionally designing {")"} unique, accessible and people-centric
+							applications.
 							<Icons icon="arrow_left" size={30} />
 						</p>
 						<div className="d-f jc-c">

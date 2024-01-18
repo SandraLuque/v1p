@@ -68,7 +68,7 @@ const dataGlobal = {
 				id: uuidv4(),
 				title: "Front-End Development",
 				description:
-					"I specialize in front-end development and I'm currently most familiar with the React ecosystem. Whenever I encounter something new, I try to quickly wrap my head around it",
+					"I specialize in web development and am currently more familiar with the React ecosystem. Whenever I encounter something new, I try to understand it quickly.",
 				icons: ["html", "js", "react"],
 				img: IMAGES.exptDevelopment,
 			},
@@ -86,7 +86,7 @@ const dataGlobal = {
 		{
 			id: 1,
 			order: "01",
-			title: "Facturación Electrónica",
+			title: "Electronic Invoicing",
 			time: "1-2 years",
 			functions: "Wireframing & Prototyping / UI Design",
 			tech: "Angular / Postgresql",
