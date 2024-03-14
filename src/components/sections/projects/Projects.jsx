@@ -20,7 +20,7 @@ export const Projects = () => {
 	return (
 		<section className="l-section" name="projects">
 			<Titles variant={"h2"} st="ta-c">
-				<h2>My Projects</h2>
+				<h2>Projects</h2>
 			</Titles>
 			<div className="d-g gap-1 ta-c">
 				<p className="fn-bigger">

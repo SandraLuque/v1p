@@ -30,9 +30,11 @@ export const Hero = () => {
 						</Titles>
 						<p className="fn-big ta-c">
 							I&apos;m Sandra, a <span className="color">self-taught </span>
-							Junior Web Developer, passionate about creating {"("}and
-							occasionally designing {")"} unique, accessible and people-centric
-							applications.
+							junior web developer with experience in development and layout
+							projects. I have worked on both individual and team projects,
+							which has allowed me to acquire solid skills in the design,
+							development and maintenance of applications, as well as in the
+							layout of user interfaces.
 							<Icons icon="arrow_left" size={30} />
 						</p>
 						<div className="d-f jc-c">
